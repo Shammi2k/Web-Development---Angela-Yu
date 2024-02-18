@@ -9,5 +9,5 @@ Course Link : https://honeywell.udemy.com/course/the-complete-web-development-bo
   </tr>
   <tr>
     <td><a href="https://shammi2k.github.io/html-portfolio/">My HTML Portfolio</a></td>
-    <td><a href="https://github.com/Shammi2k/html-portfolio">Project Repository</a></td>
+    <td><a href="https://github.com/Shammi2k/html-portfolio">repo</a></td>
   </tr>
