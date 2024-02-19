@@ -1,0 +1,26 @@
+/* Write your code here: */
+
+/* Apply to all selectors */
+h1, h2 {
+    color: blueviolet;
+}
+
+/* This selector is for first level child */
+.box > p {
+    color: firebrick;
+}
+
+/* Applies to any level of descendant */
+.box li {
+    color: blue;
+}
+
+/* Applies to only objects matching ALL conditions */
+li.done {
+    color: seagreen;
+}
+
+/* You can combine multiple ideas learnt above as well */
+ul p.done {
+    font-size: 0.5rem;
+}
