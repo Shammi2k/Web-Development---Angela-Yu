@@ -15,5 +15,6 @@ Course Link : https://honeywell.udemy.com/course/the-complete-web-development-bo
 
 <h2>Useful links</h2>
 <ul>
-<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flex Cheatsheet</a></li>
+  <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flex Cheatsheet</a></li>
+  <li><a href="https://appbrewery.github.io/flexboxfroggy/">Flexbox Practice Froggy game</a></li>
 </ul>
