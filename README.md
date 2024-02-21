@@ -13,7 +13,7 @@ Course Link : https://honeywell.udemy.com/course/the-complete-web-development-bo
   </tr>
 </table>
 
-Useful links :
+<h2>Useful links</h2>
 <ul>
 <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flex Cheatsheet</a></li>
 </ul>
