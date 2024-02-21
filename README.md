@@ -12,3 +12,8 @@ Course Link : https://honeywell.udemy.com/course/the-complete-web-development-bo
     <td><a href="https://github.com/Shammi2k/my-resume">repo</a></td>
   </tr>
 </table>
+
+Useful links :
+<ul>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flex Cheatsheet</a></li>
+</ul>
