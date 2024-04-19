@@ -11,9 +11,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/random", (req, res) => {
   const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
   res.json(randomJoke);
-})
+});
 
 //2. GET a specific joke
+app.get("/jokes/:id", (req, res) => {
+  const joke = jokes.find((joke) => joke.id == req.params.id);
+  res.json(joke);
+});
 
 //3. GET a jokes by filtering on the joke type
 
