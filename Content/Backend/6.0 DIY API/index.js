@@ -36,8 +36,26 @@ app.post("/jokes", (req, res) => {
 });
 
 //5. PUT a joke
+app.put("/jokes/:id", (req, res) => {
+  const joke = jokes.find((joke) => joke.id == req.params.id);
+  joke.jokeText = req.body.text;
+  joke.jokeType = req.body.type;
+  res.json(joke);
+});
 
 //6. PATCH a joke
+app.patch("/jokes/:id", (req, res) => {
+  const joke = jokes.find((joke) => joke.id == req.params.id);
+  if (req.body.text)
+  {
+    joke.jokeText = req.body.text;
+  }
+  if (req.body.type)
+  {
+    joke.jokeType = req.body.type;
+  }
+  res.json(joke);
+});
 
 //7. DELETE Specific joke
 
