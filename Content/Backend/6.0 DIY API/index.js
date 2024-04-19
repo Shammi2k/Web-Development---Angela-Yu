@@ -20,8 +20,20 @@ app.get("/jokes/:id", (req, res) => {
 });
 
 //3. GET a jokes by filtering on the joke type
+app.get("/filter", (req, res) => {
+  const filteredJokes = jokes.filter((joke) => joke.jokeType == req.query.type);
+  res.json(filteredJokes);
+});
 
 //4. POST a new joke
+app.post("/jokes", (req, res) => {
+  const joke = {};
+  joke.id = jokes[jokes.length - 1].id + 1;
+  joke.jokeText = req.body.text;
+  joke.jokeType = req.body.type;
+  jokes.push(joke);
+  res.json(joke);
+});
 
 //5. PUT a joke
 
