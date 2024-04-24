@@ -37,9 +37,9 @@ app.get("/", async (req, res) => {
 
 app.post("/add", async (req, res) => {
   
-    const country = req.body.country.trim();
+    const country = req.body.country.trim().toLowerCase();
     try {
-    const country_code = (await dbClient.query("SELECT country_code FROM countries WHERE country_name LIKE '%' || $1 || '%'", [country])).rows[0].country_code;
+    const country_code = (await dbClient.query("SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%'", [country])).rows[0].country_code;
     try {
       await dbClient.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [country_code]);
     }
