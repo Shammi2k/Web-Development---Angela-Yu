@@ -30,6 +30,18 @@ app.get("/", async (req, res) => {
   res.render("index.ejs", result);
 });
 
+app.post("/add", async (req, res) => {
+  try {
+    const country = req.body.country.trim();
+    const country_code = (await dbClient.query("SELECT country_code FROM countries WHERE country_name = $1", [country])).rows[0].country_code;
+    await dbClient.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [country_code]);
+  }
+  catch (err) {
+    console.log(err.message);
+  }
+  res.redirect("/");
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
