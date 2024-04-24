@@ -16,8 +16,7 @@ dbClient.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", async (req, res) => {
-  //Write your code here.
+async function getCountryList() {
   const country_codes = (await dbClient.query("SELECT country_code FROM visited_countries;")).rows;
   console.log(country_codes);
   const result = {};
@@ -27,17 +26,35 @@ app.get("/", async (req, res) => {
   });
   result['countries'] = codes;
   result['total'] = codes.length;
+  return result;
+}
+
+app.get("/", async (req, res) => {
+  //Write your code here.
+  const result = await getCountryList();
   res.render("index.ejs", result);
 });
 
 app.post("/add", async (req, res) => {
-  try {
+  
     const country = req.body.country.trim();
+  try {
     const country_code = (await dbClient.query("SELECT country_code FROM countries WHERE country_name = $1", [country])).rows[0].country_code;
+  }
+  catch (err) {
+    const result = await getCountryList();
+    result['error'] = "Country does not exist, Try again";
+    res.render("index.ejs", result);
+    return;
+  }
+  try {
     await dbClient.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [country_code]);
   }
   catch (err) {
-    console.log(err.message);
+    const result = await getCountryList();
+    result['error'] = "Country has already been added, Try again";
+    res.render("index.ejs", result);
+    return;
   }
   res.redirect("/");
 });
